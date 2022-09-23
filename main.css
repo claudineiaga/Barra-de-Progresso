@@ -1,0 +1,73 @@
+body{
+    background: black;
+    color: white;
+}
+.container{
+    margin: 100px auto;
+    margin-top: 120px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+.progresso2{
+    border-radius: 30px;
+    background-color: #fff;
+}
+.progresso-bar2{
+    height: 18px;
+    border-radius: 30px;
+    transition: 0.4s linear;
+    transition-property: width, background-color ;
+}
+.progresso-mover .progresso-bar2{
+    background-color: #26d80b;
+    animation: progressob 5s infinite;
+}
+@keyframes progressob{
+    0%{
+        width: 0%;
+        background: rgb(222, 240, 217);
+    }
+    100%{
+        width: 100%;
+        background: #26d80b;
+        box-shadow: 0 0 40px #26d80b;
+    }
+}
+.fa-solid{
+    color: #26d80b;
+    margin-left: 120px;
+    animation: icon 5s infinite;
+    background-color: transparent;
+    padding-right: 400px;
+    padding-bottom: 20px;
+}
+@keyframes icon{
+    0%{
+        opacity: 0.2;
+        text-shadow: 0 0 0 #26d80b;
+    }
+    100%{
+        opacity: 1;
+        text-shadow: 0 0 10px #26d80b;
+    }
+}
+.leitor{
+    --progresso:0;
+    animation: progresso 5s steps(100) infinite;
+    counter-reset: progresso var(--progresso);
+    font-size: 2.1em;
+    position: absolute;
+    bottom: 45px;
+    left: 225px;
+    color: #26d80b;
+}
+.leitor::after{
+    content: counter(progresso) "%";
+}
+@keyframes progresso{
+    90%,
+    100%{
+        --progresso: 100;
+    }
+}
